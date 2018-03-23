@@ -16,4 +16,8 @@ Palvelua pystyy käyttämään useampi eri käyttäjä. Käyttäjät kirjautuvat
 
 [Toimiva sovellus](https://tsoha-muikkarilista.herokuapp.com/tasks)
 
+[Käyttötapaukset](https://github.com/JasmineLindelof/Muistilista/blob/master/documentation/käyttötapaukset.md)
+
+[Tietokantakaavio](https://github.com/JasmineLindelof/Muistilista/blob/master/documentation/tietokantakaavio.md)
+
 
