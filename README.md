@@ -7,12 +7,13 @@ Palvelua pystyy käyttämään useampi eri käyttäjä. Käyttäjät kirjautuvat
 ## Toimintoja:
 
 * Kirjautuminen
-* Askereen lisäys, muokkaus ja poisto
+* Tehtävän lisäys, muokkaus ja poisto
 * Tärkeysasteen lisäys ja poisto
-* Askareen tärkeyttäminen lisäyksessä tai myöhemmin
+* Tehtävän tärkeyttäminen lisäyksessä tai myöhemmin
 * Luokkien lisäys ja poisto
 * Askareiden luokittelu
 * Yhdellä askareella voi olla monta luokkaa
 
+[Toimiva sovellus](https://tsoha-muikkarilista.herokuapp.com/tasks)
 
 
