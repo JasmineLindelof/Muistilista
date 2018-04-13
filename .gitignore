@@ -1,9 +1,6 @@
 .DS_Store
 *.pyc
 *.db
-Procfile
-requirements.txt
-run.py
 
 
 venv
