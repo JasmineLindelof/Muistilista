@@ -22,11 +22,14 @@ def tasks_form():
 def tasks_set_done(task_id):
 
     t = Task.query.get(task_id)
+    if t.account_id != current_user.id:
+        # tee jotain, esim. 
+        return login_manager.unauthorized()
+
     t.done = True
     db.session().commit()
   
     return redirect(url_for("tasks_index"))
-
   
 @app.route("/tasks/", methods=["POST"])
 @login_required
