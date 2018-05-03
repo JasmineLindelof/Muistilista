@@ -11,12 +11,12 @@ def auth_login():
         return render_template("auth/loginform.html", form = LoginForm())
 
     form = LoginForm(request.form)
-    # mahdolliset validoinnit
+   
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
         return render_template("auth/loginform.html", form = form,
-                                error = "No such username or password")
+                                error = "Käyttäjätunnusta ei ole olemassa")
 
 
     login_user(user)
@@ -32,7 +32,7 @@ def auth_register():
     if request.method == "GET":
         return render_template("auth/registerform.html", form = RegisterForm())
 
-    form = RegisterForm(request.form)
+    form = registerform(request.form)
 
 
     user = User.query.filter_by(username=form.username.data).first()
@@ -44,7 +44,7 @@ def auth_register():
         return render_template("auth/registerform.html", form = form,
                                 error = "Salasanat eivät täsmää")
 
-    x = User(form.username.data, form.password.data)  
+    x = user(form.username.data, form.password.data)  
 
     db.session().add(x)
     db.session().commit()                          

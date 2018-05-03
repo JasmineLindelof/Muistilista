@@ -23,13 +23,28 @@ def tasks_set_done(task_id):
 
     t = Task.query.get(task_id)
     if t.account_id != current_user.id:
-        # tee jotain, esim. 
+
         return login_manager.unauthorized()
 
     t.done = True
     db.session().commit()
   
     return redirect(url_for("tasks_index"))
+
+
+@app.route("/tasks/<task_id>/", methods=["POST"])
+@login_required
+def tasks_delete(task_id):
+
+    t = Task.query.get(task_id)
+    if t.account_id != current_user.id:
+
+        return login_manager.unauthorized()
+
+    db.session().delete(t)
+    db.session().commit()
+  
+    return redirect(url_for("tasks_index"))    
   
 @app.route("/tasks/", methods=["POST"])
 @login_required
