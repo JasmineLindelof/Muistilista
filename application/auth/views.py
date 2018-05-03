@@ -27,3 +27,28 @@ def auth_logout():
     logout_user()
     return redirect(url_for("tasks_index"))    
 
+@app.route("/auth/register", methods = ["GET", "POST"])
+def auth_register():
+    if request.method == "GET":
+        return render_template("auth/registerform.html", form = RegisterForm())
+
+    form = RegisterForm(request.form)
+
+
+    user = User.query.filter_by(username=form.username.data).first()
+    confirmed = form.password.data == form.passwordconfirmation.data
+    if user:
+        return render_template("auth/registerform.html", form = form,
+                                error = "Käyttäjätunnus on varattu")
+    if not confirmed:
+        return render_template("auth/registerform.html", form = form,
+                                error = "Salasanat eivät täsmää")
+
+    x = User(form.username.data, form.password.data)  
+
+    db.session().add(x)
+    db.session().commit()                          
+
+
+    login_user(x)
+    return redirect(url_for("index"))
