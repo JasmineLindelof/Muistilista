@@ -32,7 +32,7 @@ def tasks_set_done(task_id):
     return redirect(url_for("tasks_index"))
 
 
-@app.route("/tasks/<task_id>/", methods=["POST"])
+@app.route("/tasks/delete/<task_id>/", methods=["POST"])
 @login_required
 def tasks_delete(task_id):
 
