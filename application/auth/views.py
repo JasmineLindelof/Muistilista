@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import LoginForm
+from application.auth.forms import LoginForm, RegisterForm
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -32,7 +32,7 @@ def auth_register():
     if request.method == "GET":
         return render_template("auth/registerform.html", form = RegisterForm())
 
-    form = registerform(request.form)
+    form = RegisterForm(request.form)
 
 
     user = User.query.filter_by(username=form.username.data).first()
@@ -44,7 +44,7 @@ def auth_register():
         return render_template("auth/registerform.html", form = form,
                                 error = "Salasanat eivät täsmää")
 
-    x = user(form.username.data, form.password.data)  
+    x = User(form.username.data, form.password.data)  
 
     db.session().add(x)
     db.session().commit()                          

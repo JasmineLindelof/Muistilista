@@ -13,8 +13,10 @@ class User(Base):
 
     tasks = db.relationship("Task", backref='account', lazy=True)
   
-    def __init__(self, name):
+    def __init__(self, name, password):
         self.name = name
+        self.username = name
+        self.password = password
 
     def get_id(self):
         return self.id

@@ -55,7 +55,7 @@ def tasks_create():
         return render_template("tasks/new.html", form = form)
   
     t = Task(form.name.data)
-    t.done = form.done.data
+    t.importance = form.importance.data
     t.account_id = current_user.id
   
     db.session().add(t)
