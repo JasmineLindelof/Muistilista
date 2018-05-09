@@ -16,6 +16,11 @@ def tasks_index():
 def tasks_form():
     return render_template("tasks/new.html", form = TaskForm())
 
+@app.route("/tasks/edit/<task_id>/")
+@login_required
+def tasks_edit():
+    return render_template("tasks/edit.html", form = TaskForm())    
+
   
 @app.route("/tasks/<task_id>/", methods=["POST"])
 @login_required
@@ -55,7 +60,7 @@ def tasks_create():
         return render_template("tasks/new.html", form = form)
   
     t = Task(form.name.data, form.importance.data, form.category.data)
-    #t.importance = form.importance.data
+    t.importance = form.importance.data
     t.account_id = current_user.id
   
     db.session().add(t)

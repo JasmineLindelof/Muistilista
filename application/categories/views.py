@@ -14,7 +14,7 @@ def categories_index():
 @app.route("/categories/new/")
 @login_required
 def categories_form():
-    return render_template("categories/new.html", form = CategoryForm())
+    return render_template("categories/new.html", form = CategoryForm(), categories = Category.query.all())
 
 
 @app.route("/categories/delete/<category_id>/", methods=["POST"])
@@ -26,12 +26,12 @@ def categories_delete(category_id):
 
         return login_manager.unauthorized()
 
-    db.session().delete()
+    db.session().delete(c)
     db.session().commit()
   
-    return redirect(url_for("categories_index"))   
+    return redirect(url_for("categories_create"))   
 
-@app.route("/categories/", methods=["POST"])
+@app.route("/categories/new/", methods=["POST"])
 @login_required
 def categories_create():
     form = CategoryForm(request.form)
@@ -42,10 +42,9 @@ def categories_create():
     c = Category(form.name.data)
     
     c.account_id = current_user.id
-  
+
     db.session().add(c)
     db.session().commit()
-  
-    return redirect(url_for("categories_index"))
+    return redirect(url_for("categories_create"))
 
        

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
   
 {% block body %}
-  <form method="POST" action="{{ url_for('tasks_create') }}">
+<form method="POST" action="{{ url_for('categories_create') }}">
     <table>
       <tr>
 				<td>
@@ -21,11 +21,29 @@
 			
       <tr>
 				<td colspan="3">
-					<input type="submit" value="Lisää uusi tehtävä!"/>
+					<input type="submit" value="Lisää uusi kategoria!"/>
 				</td>
-			</tr>
+      </tr>
+      <tr>
 		</table>
   </form>
+  <table>
+    <th>Kategoriat</th>
+    
+        <th></th>
+      </tr>
+      {% for category in categories %}
+      <tr>
+        <td>{{ category.name }}</td>
+        <td>
+          <form method="POST" action="{{ url_for('categories_delete', category_id=category.id) }}">
+            <input type="submit" value="Poista"/>
+          </form>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </table>
 	{% endblock %}
 	
 	

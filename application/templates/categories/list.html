@@ -1,24 +1,25 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-    
-      <th>Kategoriat</th>
   
-      <th></th>
-    </tr>
-    {% for category in categories %}
-    <tr>
-      <td>{{ category.name }}</td>
+    <table>
+      <tr>
       
-      <td>
-	
-  <form method="POST" action="{{ url_for('categories_delete', category_id=category.id) }}">
-	  <input type="submit" value="Poista"/>
-	</form>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+        <th>Kategoriat</th>
+    
+        <th></th>
+      </tr>
+      {% for category in categories %}
+      <tr>
+        <td>{{ category.name }}</td>
+        
+        <td>
+    
+    <form method="POST" action="{{ url_for('categories_delete', category_id=category.id) }}">
+      <input type="submit" value="Poista"/>
+    </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
 {% endblock %}

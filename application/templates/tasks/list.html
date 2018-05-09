@@ -7,7 +7,7 @@
       <th>Tärkeys</th>
       <th>Kategoriat</th>
       <th>Tehty</th>
-      <th></th>
+      <th colspan="3"></th>
     </tr>
     {% for task in tasks %}
     <tr>
@@ -17,11 +17,16 @@
       <td>{{ task.done }}</td>
       <td>
         <form method="POST" action="{{ url_for('tasks_set_done', task_id=task.id) }}">
-          <input type="submit" value="Merkitse tehdyksi"/>
+          <input type="submit" value="Merkitse tehdyksi" class="btn btn-primary"/>
         </form>
-        <form method="POST" action="{{ url_for('tasks_delete', task_id=task.id) }}">
-          <input type="submit" value="Poista"/>
-        </form>
+      </td>
+      <td>
+          <form method="POST" action="{{ url_for('tasks_delete', task_id=task.id) }}">
+            <input type="submit" value="Poista" class="btn btn-danger" />
+          </form>
+      </td>
+      <td> 
+        <a href="{{ url_for('tasks_edit', task_id=task.id) }}" class="btn btn-primary">Muokkaa</a>
       </td>
     </tr>
     {% endfor %}
