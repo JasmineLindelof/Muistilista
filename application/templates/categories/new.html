@@ -21,7 +21,7 @@
 			
       <tr>
 				<td colspan="3">
-					<input type="submit" value="Lisää uusi kategoria!"/>
+					<input type="submit" value="Lisää uusi kategoria!" class="btn btn-primary"/>
 				</td>
       </tr>
       <tr>
@@ -37,7 +37,7 @@
         <td>{{ category.name }}</td>
         <td>
           <form method="POST" action="{{ url_for('categories_delete', category_id=category.id) }}">
-            <input type="submit" value="Poista"/>
+            <input type="submit" value="Poista" class="btn btn-danger"/>
           </form>
         </td>
       </tr>

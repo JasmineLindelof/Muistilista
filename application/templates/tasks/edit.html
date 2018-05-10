@@ -1,12 +1,10 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="{{ url_for('tasks_create') }}">
+<form method="POST" action="{{ url_for('tasks_edit') }}">
   <table>
     <tr>
-     
-      <th>Kategoriat</th>
-     
+     <th>Kategoriat</th>
       <th></th>
     </tr>
     {% for task in tasks %}
