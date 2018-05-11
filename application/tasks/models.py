@@ -22,3 +22,15 @@ class Task(Base):
         self.done = False
         self.importance = importance
         self.categories = categories
+
+    @staticmethod
+    def get_tasks_by_account(id):
+        return db.session().query(Task).filter_by(account_id=id).all()
+
+    @staticmethod
+    def get_all_by_ids(ids):
+        ret = []
+        for t in db.session().query(Task).filter(Task.id.in_(ids)):
+            print(t)
+            ret.append(t)
+        return ret        

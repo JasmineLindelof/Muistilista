@@ -8,8 +8,10 @@ from application.tasks.forms import TaskForm
 
 
 @app.route("/tasks/", methods=["GET"])
+@login_required
 def tasks_index():
-    return render_template("tasks/list.html", tasks = Task.query.all())
+    return render_template("tasks/list.html", tasks =  Task.get_tasks_by_account(current_user.id))
+
 
   
 @app.route("/tasks/new/")
@@ -21,12 +23,7 @@ def tasks_form():
     form.category.choices = categories
     return render_template("tasks/new.html", form = form)
 
-#@app.route("/tasks/edit/<task_id>/")
-#@login_required
-#def tasks_edit():
-#    return render_template("tasks/edit.html", form = TaskForm())    
 
-  
 @app.route("/tasks/<task_id>/", methods=["POST"])
 @login_required
 def tasks_set_done(task_id):
