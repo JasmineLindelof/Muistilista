@@ -14,7 +14,7 @@ def categories_index():
 @app.route("/categories/new/")
 @login_required
 def categories_form():
-    return render_template("categories/new.html", form = CategoryForm(), categories = Category.query.all())
+    return render_template("categories/new.html", form = CategoryForm(), categories = Category.get_categories_by_account(current_user.id))
 
 
 @app.route("/categories/delete/<category_id>/", methods=["POST"])
