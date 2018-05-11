@@ -3,18 +3,14 @@
 ### Käyttötapaus: Käyttäjätunnuksen luominen
 * Tavoite: Saada käyttäjätunnus
 * Laukaisija: Käyttäjä ei ole ennen käyttänyt sovellusta, mutta tahtoo ottaa sen käyttöön.
-* Käyttötapauksen kulku: Käyttäjä valitsee itselleen käyttäjätunnuksen ja salasanan.
+* Käyttötapauksen kulku: Käyttäjä valitsee itselleen käyttäjätunnuksen ja salasanan. Salasana on varmistuksen vuoksi kirjoitettava kahdesti.
 * Poikkeuksellinen toiminta: Valittu käyttäjätunnus on jo olemassa.
 
 ### Käyttötapaus: Tehtävän lisäys
 * Tavoite: Lisätä muistilistalle uusi muistettava tehtävä
 * Laukaisija: Tarve 
-* Käyttötapauksen kulku: Käyttäjä kirjoittaa tehtävän ja halutessaan lisää tehtävälle tärkeysasteen tai luokittelee tehtävän. Uusi tehtävä ilmestyy muistilistalle tärkeysjärjestyksen mukaisesti.
+* Käyttötapauksen kulku: Käyttäjä kirjoittaa tehtävän ja halutessaan lisää tehtävälle tärkeysasteen tai luokittelee tehtävän. Uusi tehtävä ilmestyy muistilistalle.
 
-### Käyttötapaus: Tehtävän tärkeysasteen muokkaus
-* Tavoite: Muokata tehtävän tärkeysastetta tärkeemmäksi tai vähemmän tärkeäksi.
-* Laukaisija: Esimerkiksi tärkeysaste on tehtävää luotaessa asetettu vääräksi tai koulutehtävän palautuspäivä lähenee.
-* Käyttötapauksen kulku: Käyttäjä valitsee tehtävän. Käyttäjä valitsee uuden tärkeysasteen. Järjestelmä järjestää muistilistan uudestaa.
 
 ### Käyttötapaus: Tehtävän poistaminen
 * Tavoite: Poistaa jo suoritettu tehtävä
@@ -25,5 +21,5 @@
 * Tavoite: Lisätä luokka johon tehtäviä voi kategorisoida
 * Laukaisija: Esimerkiksi käyttäjä tahtoo eritellä mitkä tehtävät ovat kotitehtäviä ja mitkä ovat koulutehtäviä, mutta kyseiset luokat eivät ole vielä olemassa.
 * Käyttötapauksen kulku: Käyttäjä valitsee ”Lisää luokka” ja nimeää uuden luokan. Uusi luokka tulee järjestelmään tehtäville valittavaksi luokaksi.
-* Poikkeuksellinen toiminta: Saman niminen luokka on jo olemassa
+
 
